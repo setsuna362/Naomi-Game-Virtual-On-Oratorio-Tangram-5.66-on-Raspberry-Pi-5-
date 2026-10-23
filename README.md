@@ -109,6 +109,8 @@ FTP 連線到 Pi 5 的 ip address 帳號 root 密碼 replayos<br>
 此時你會看到 Pi 5 輸出的 HDMI 螢幕畫面變黑，表示 ReplayOS 已經永久被我們關閉<br>
 接著我們執行下列程式設定 Pi 5 內 flycast 的資料存取運行權限
 <pre><code>find ~/flycast/ -type f -exec chmod 755 {} \; && find ~/flycast/ -type d -exec chmod 755 {} \;</code></pre>
+<pre><code>find ~/.config/ -type d -exec chmod 755 {} \; && find ~/.config/ -type f -exec chmod 644 {} \;</code></pre>
+
 接著我們第一次 flycast 啟動
 <pre><code>exec /root/flycast/build/flycast "$@"</code></pre>
 這時你會看到 Pi 5 輸出的 HDMI 螢幕變成我們熟悉的 flycast 操作介面<br>
