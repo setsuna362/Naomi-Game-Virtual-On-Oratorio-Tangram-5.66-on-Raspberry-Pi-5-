@@ -193,14 +193,14 @@ network.Enable = no</pre>
 2. 2台 Pi 5 進行連線遊戲，必須有一台是 Master 主機，一台是 Slave 主機<br>
 <p>要修改 emu.cfg 內 [VIRTUAL-ON ORATORIO TANGRAM] 下方這一區段的設定</p>
 Master 主機使用設定：<pre>network.ActAsServer = yes
-network.Enable = yes</pre>
-並且要進入遊戲TEST模式，選GAME ASSIGNMENTS，在COMMUNICATION MODE = MASTER <br>
+network.Enable = yes
+並且要進入遊戲TEST模式，選GAME ASSIGNMENTS，在COMMUNICATION MODE = MASTER</pre>
 <p>Slave 主機使用設定：<pre>network.ActAsServer = no
-network.Enable = yes</pre>
-並且要進入遊戲TEST模式，選GAME ASSIGNMENTS，在COMMUNICATION MODE = SLAVE <br>
+network.Enable = yes
+並且要進入遊戲TEST模式，選GAME ASSIGNMENTS，在COMMUNICATION MODE = SLAVE</pre>
 <p>衛星 Satellite Monitor Live 主機使用設定與 Slave 主機相同：<pre>network.ActAsServer = no
-network.Enable = yes</pre>
-並且要進入遊戲TEST模式，選GAME ASSIGNMENTS，在COMMUNICATION MODE = SATELLITE <br>
+network.Enable = yes
+並且要進入遊戲TEST模式，選GAME ASSIGNMENTS，在COMMUNICATION MODE = SATELLITE</pre>
 
 <p>現在，你可以選擇，並進入 emu.cfg 設定 (若是單機遊玩就不用再進入 enu.cfg 設定)</p>
 
