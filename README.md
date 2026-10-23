@@ -89,6 +89,7 @@ EGL / DRM 依賴
 接著我們準備要去 git flycast 的程式，在這之前要先設定好Pi 5系統時間，請依下列格式輸入你現在的正確日期時間並執行
 <pre><code>sudo date -s "2026-05-10 12:10:00"</code></pre>
 接下來開始 git flycast 的程式
+<pre><code>apt install -y git</code></pre>
 <pre><code>git clone --recursive https://github.com/flyinghead/flycast.git</code></pre>
 拿到 flycast 程式後先別急著編碼，我們要套用 MrShooter42 的 Naomi Network 修正 naomi_network.cpp<br>
 <P></P>MrShooter42 Fix Live Monitor in Virtual On Oratorio Tangram. This fixes setting the third node to Satellite.</P> 
