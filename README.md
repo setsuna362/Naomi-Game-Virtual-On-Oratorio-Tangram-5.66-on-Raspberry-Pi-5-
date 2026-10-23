@@ -50,25 +50,18 @@ password:replayos</pre>
 首先我們先直接手動修復 WiFi
 
 ```ini
-cat > /etc/wpa_supplicant/wpa_supplicant-wlan0.conf <<EOF
-ctrl_interface=DIR=/var/run/wpa_supplicant
-update_config=1
-country=TW
-
-network={
-    ssid="你的WiFi SSID"
-    psk="你的WiFi密碼"
-}
-EOF
+nano /media/sd/config/replay.cfg
 ```
-1. 殺掉所有 wpa_supplicant <br>
-2. 刪掉 socket lock <br>
-3. 重新啟動 wpa_supplicant（背景）<br>
-<pre><code>killall wpa_supplicant</code></pre>
-<pre><code>rm -f /var/run/wpa_supplicant/wlan0</code></pre>
-<pre><code>wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant-wlan0.conf</code></pre>
-成功會看到：Successfully initialized wpa_supplicant
-來確認一下 WiFi 是否正常工作了
+
+找到原本的 Wi-Fi 設定，修改為： <br>
+
+<pre><code>wifi_name = "你的WiFi SSID"<br>
+wifi_pwd = "你的WiFi密碼"</code></pre>
+儲存後執行：
+<pre><code>sync<br>
+reboot</code></pre>
+
+重開機後，來確認一下 WiFi 是否正常工作了
 <pre><code>ip addr show wlan0</code></pre>
 
 # Step 4: 更新系統及編碼程式，編碼flycast
@@ -91,11 +84,7 @@ EGL / DRM 依賴
 接下來開始 git flycast 的程式
 <pre><code>apt install -y git</code></pre>
 <pre><code>git clone --recursive https://github.com/flyinghead/flycast.git</code></pre>
-拿到 flycast 程式後先別急著編碼，我們要套用 MrShooter42 的 Naomi Network 修正 naomi_network.cpp<br>
-<P></P>MrShooter42 Fix Live Monitor in Virtual On Oratorio Tangram. This fixes setting the third node to Satellite.</P> 
-用這個 network cpp 編碼進 flycast，可以讓第三台 Pi 5以Slave 主機的方式加入 VOOT 的對戰連線進行 Live Monitor
-<pre><code>wget -O /root/flycast/core/network/naomi_network.cpp \
-https://raw.githubusercontent.com/MrShooter42/flycast/84485e97172bdfbcb76e544743f4850cce557ff7/core/network/naomi_network.cpp</code></pre>
+
 接著就可以準備進行 flycast 正式編碼了
 <pre><code>cd flycast</code></pre>
 <pre><code>mkdir build && cd build</code></pre>
