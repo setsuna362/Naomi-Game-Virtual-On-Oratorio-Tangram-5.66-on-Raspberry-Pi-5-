@@ -2,7 +2,7 @@
 
 Run **Virtual-On: Oratorio Tangram 5.66 (M.S.B.S. Ver. 5.66)** on a Raspberry Pi 5 with ReplayOS and Flycast. This guide is intended for Windows users and focuses on the **Windows one-click installer**.
 
-> **Project status:** The Windows installer has been tested for remote installation and automatic VOOT startup on a Raspberry Pi 5. Not every mode or clean-install environment has been fully verified. The repository's one-click distribution and Release assets must be published before the Git-clone workflow below works end to end.
+> **Project status:** This guide targets RePlayOS 2.0.52. The Windows installer is incomplete because `install.ps1` is missing, and compatibility with RePlayOS 2.0.52 has not yet been verified.
 
 For the original, detailed Chinese instructions (manual compilation, configuration and troubleshooting), see [Manual installation.MD](Manual%20installation.MD).
 
@@ -11,7 +11,7 @@ For the original, detailed Chinese instructions (manual compilation, configurati
 **On Windows:**
 
 1. Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/).
-2. Download the Raspberry Pi 5 ReplayOS image from the [ReplayOS download page](https://www.replayos.com/download/). The original manual uses **ReplayOS 1.6.0**, file `replayos-base-rpi-v1.6.0.img.xz`; check the supported image version before installing.
+2. Download the Raspberry Pi 5 ReplayOS image from the [ReplayOS download page](https://www.replayos.com/download/). Use **RePlayOS 2.0.52** (image: `replayos-2.0.52-arm64.img.xz`). This installer's compatibility with 2.0.52 has not yet been verified.
 3. Open Raspberry Pi Imager and select **Raspberry Pi 5**.
 4. Select **Use custom image**, then choose the downloaded ReplayOS `.img.xz` file.
 5. Select your microSD card and write the image.
