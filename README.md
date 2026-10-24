@@ -28,61 +28,44 @@ For the original, detailed Chinese instructions (manual compilation, configurati
 
 The original manual also suggests using a network IP scanner on Windows if needed.
 
-## Step 3 — Prepare the Windows installation folder
+## Step 3 — Install Git for Windows
 
-The planned final distribution lets you clone this repository and provide only your own game and BIOS files.
+Open PowerShell and run:
 
-Open **PowerShell** on Windows:
+```powershell
+winget install --id Git.Git -e --source winget
+```
+
+After installation, close PowerShell and open it again.
+
+## Step 4 — Clone the project
+
+**Do not create `C:\Pi-5_VOOT` or place ROM/BIOS files there before cloning. Git creates this folder for you.**
 
 ```powershell
 git clone https://github.com/setsuna362/Naomi-Game-Virtual-On-Oratorio-Tangram-5.66-on-Raspberry-Pi-5- C:\Pi-5_VOOT
 ```
 
-> **Prerequisite:** Git for Windows must be installed to use `git clone`. The installer files and matching release archive must also be published in this repository. Until then, use the separately supplied test installer package.
+If you have already cloned the project, use `git -C C:\Pi-5_VOOT pull` to get updates instead of cloning again.
 
-Put your **own legally obtained** files in `C:\Pi-5_VOOT`:
+## Step 5 — Add ROM and BIOS
 
-```text
-C:\Pi-5_VOOT\
-├── install.bat
-├── install.ps1
-├── naomi.zip       (user-supplied NAOMI BIOS)
-└── vonot.zip       (user-supplied VOOT 5.66 game ROM)
-```
+**Only after `git clone` succeeds**, copy your own legally obtained `naomi.zip` and `vonot.zip` into `C:\Pi-5_VOOT`. Keep both files zipped. Game ROMs and BIOS files are not distributed by this project.
 
-The installer will obtain the precompiled Flycast ARM64 package and supporting configuration from the project's published distribution. **Game ROMs and BIOS files are not included or distributed by this project.**
-
-## Step 4 — Run the one-click installer
-
-From PowerShell:
+## Step 6 — Run the installer
 
 ```powershell
 cd C:\Pi-5_VOOT
 .\install.bat
 ```
 
-Enter the Raspberry Pi 5 IP address from Step 2, then choose a mode:
+The installer requires `install.ps1` alongside `install.bat`. **The PowerShell script is currently missing from the main branch, so the automated installation is not yet operational.**
 
-| Option | Mode | Purpose |
-| --- | --- | --- |
-| 1 | **NO LINK** | Standalone play, no network link |
-| 2 | **MASTER** | Main machine for linked play |
-| 3 | **SLAVE** | Second machine for linked play |
-| 4 | **SATELLITE** | Satellite Monitor Live / spectator setup (experimental) |
+Follow the installer prompts to enter the Raspberry Pi 5 IP and select NO LINK, MASTER, SLAVE, or experimental SATELLITE mode. On a fresh ReplayOS image, SSH credentials are `root` / `replayos`.
 
-On a fresh ReplayOS installation, the expected SSH username is `root` and the default password is `replayos`. The Windows installer is designed to handle default authentication automatically. If your credentials differ, additional input or configuration may be necessary.
+## Step 7 — Restart and verify
 
-The installer transfers the files to the Pi, installs Flycast and its configuration, sets up the selected mode and enables automatic launch. It may need an internet connection on Windows to install a PowerShell SSH dependency on first use.
-
-**Security:** Use this installer only on a Raspberry Pi you own or administer, on a trusted local network. Change the default ReplayOS SSH password after setup. Never include credentials or copyrighted ROMs in a public Git commit.
-
-## Step 5 — Restart and verify
-
-Restart the Raspberry Pi 5 normally. If installation succeeds, it should launch **VOOT 5.66** automatically instead of the ReplayOS frontend.
-
-Check the controller inputs and open **GAME TEST MODE → GAME ASSIGNMENTS** to verify that **COMMUNICATION MODE** matches the selected role: **NO LINK**, **MASTER**, **SLAVE**, or **SATELLITE**. Also confirm the difficulty, match counts and play times.
-
-For linked play, configure each machine with its intended role. Master/Slave networking must be tested on your actual network; three-machine Satellite behavior is still experimental.
+Once installation completes successfully, restart the Raspberry Pi 5 and check that VOOT 5.66 launches and the selected communication mode is correct.
 
 ## Installation paths on the Raspberry Pi 5
 
