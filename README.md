@@ -2,7 +2,7 @@
 
 Run **Virtual-On: Oratorio Tangram 5.66 (M.S.B.S. Ver. 5.66)** on a Raspberry Pi 5 with ReplayOS and Flycast. This guide is intended for Windows users and focuses on the **Windows one-click installer**.
 
-> **Project status:** This guide targets RePlayOS 2.0.52. The Windows installer is incomplete because `install.ps1` is missing, and compatibility with RePlayOS 2.0.52 has not yet been verified.
+> **Project status:** This guide targets RePlayOS 2.0.52. The Windows installer scripts are present, but the complete workflow on RePlayOS 2.0.52 remains unverified.
 
 For the original, detailed Chinese instructions (manual compilation, configuration and troubleshooting), see [Manual installation.MD](Manual%20installation.MD).
 
@@ -59,7 +59,7 @@ cd C:\Pi-5_VOOT
 .\install.bat
 ```
 
-The installer requires `install.ps1` alongside `install.bat`. **The PowerShell script is currently missing from the main branch, so the automated installation is not yet operational.**
+The installer requires `install.ps1` alongside `install.bat`. The PowerShell script has now been restored to the main branch. The full installation flow remains unverified.
 
 Follow the installer prompts to enter the Raspberry Pi 5 IP and select NO LINK, MASTER, SLAVE, or experimental SATELLITE mode. On a fresh ReplayOS image, SSH credentials are `root` / `replayos`.
 
